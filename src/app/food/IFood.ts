@@ -4,5 +4,6 @@ export interface IFood {
     desc:string,
     price:number,
     avalilability:boolean,
-    longdesc:string
+    longdesc:string,
+    ingredients:string
 }

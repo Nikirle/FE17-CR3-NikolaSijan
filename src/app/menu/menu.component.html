@@ -15,7 +15,7 @@
     <div class="card-body ">
         <div class="d-flex gap-3">
         <button type="button" class="btn btn-primary" routerLink="/details/{{i}}">Details</button>
-        <button type="button" class="btn btn-success">Order</button>
+        <button type="button" class="btn btn-success" (click)="addToCart(item)">Order</button>
         </div>
     </div>
   </ng-template>

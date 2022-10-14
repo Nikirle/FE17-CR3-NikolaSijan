@@ -5,8 +5,8 @@
         <div>
             <h3>{{dish.desc}}</h3>
             <p>{{dish.longdesc}}</p>
-    
-            <button type="button" class="btn btn-success" style="width:15rem ;">Order</button>
+            <p>{{dish.price | currency:"EUR"}}</p>
+            <button type="button" class="btn btn-success" style="width:15rem ;" (click)="addToCart(dish)">Order</button>
         </div>
     </div>
     </div>

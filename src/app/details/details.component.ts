@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute,Params} from '@angular/router';
 import { food } from '../food/food';
 import { IFood } from '../food/IFood';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-details',
@@ -10,7 +11,7 @@ import { IFood } from '../food/IFood';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute) { }
+  constructor(private route:ActivatedRoute,private cs:ServiceService) { }
   dish:IFood={} as IFood
   id:number=0
 
@@ -20,6 +21,13 @@ export class DetailsComponent implements OnInit {
       this.dish= food[this.id]
     }
     )
+  }
+
+  addToCart(dish:IFood){
+    alert("you add this dish to the cart")
+    this.cs.addToCart(dish)
+    
+    
   }
 
 }
