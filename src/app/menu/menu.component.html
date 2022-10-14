@@ -1,0 +1,27 @@
+<div class="container ">
+    <h1 style="font-family:Inspiration, cursive; font-size: 5rem; text-align: center;"> Our specialties</h1>
+<div class="row row-col-3 justify-content-center gap-3 p-3 ">
+<div *ngFor="let item of food" class="card col-4" style="width: 20rem; box-shadow: 0 2px 3px black;">
+    <img src="{{item.img}}" class="card-img-top" style="height: 12rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{item.name}}</h5>
+      <p class="card-text">{{item.desc}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{item.price | currency:"EUR"}}</li>
+      
+    </ul>
+    <ng-template [ngIf]="item.avalilability" [ngIfElse]="wrong">
+    <div class="card-body ">
+        <div class="d-flex gap-3">
+        <button type="button" class="btn btn-primary">Details</button>
+        <button type="button" class="btn btn-success">Order</button>
+        </div>
+    </div>
+  </ng-template>
+  <ng-template #wrong>
+    <div class="text-danger">This product is not available!</div>
+  </ng-template>
+  </div>
+</div>
+</div>
