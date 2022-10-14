@@ -1,0 +1,12 @@
+<div *ngIf="dish" class="container text-center gap-3 p-3">
+    <h1 style="font-family:Inspiration, cursive; font-size: 5rem;">{{dish.name}}</h1>
+    <div class="d-flex justify-content-center gap-3 p-3">
+        <img src="{{dish.img}}" style="height: 30rem;" >
+        <div>
+            <h3>{{dish.desc}}</h3>
+            <p>{{dish.longdesc}}</p>
+    
+            <button type="button" class="btn btn-success" style="width:15rem ;">Order</button>
+        </div>
+    </div>
+    </div>

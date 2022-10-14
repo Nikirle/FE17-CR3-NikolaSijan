@@ -3,5 +3,6 @@ export interface IFood {
     img:string,
     desc:string,
     price:number,
-    avalilability:boolean
+    avalilability:boolean,
+    longdesc:string
 }
