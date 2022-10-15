@@ -11,7 +11,13 @@ export class ServiceService {
   constructor() { }
 
   addToCart(dish:IFood){
-    this.items.push(dish)
+    // this.items.push(dish)
+    if (this.items.find((val) => val.name == dish.name)) {
+      
+      dish.qtty++;
+    } else {
+      this.items.push(dish);
+    }
   }
 
   showItem(){
@@ -26,7 +32,7 @@ export class ServiceService {
   totalAmount(){
     let total:number= 0
     for(let item of this.items){
-     total += item.price
+     total += item.price*item.qtty
     }
     return total
     }
@@ -35,7 +41,7 @@ export class ServiceService {
       let total:number= 0
       let service:number=0
     for(let item of this.items){
-     total += item.price
+     total += item.price*item.qtty
      service= total*0.1
     }
     return service
@@ -46,7 +52,7 @@ export class ServiceService {
       let discount:number = 0 
       let total:number=0
       for(let item of this.items){
-        total += item.price
+        total += item.price*item.qtty
         if(total>40){
           discount=total*0.15
           }
