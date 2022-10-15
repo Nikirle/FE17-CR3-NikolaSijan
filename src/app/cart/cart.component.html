@@ -1,10 +1,13 @@
-<div class="container p-3" style="width:50% ;">
+<div class="container p-3">
+  <div class="d-flex justify-content-center gap-3 p-3">
+  <div style="width:70% ;">
     <div class="card card-header">
         <div class="d-flex justify-content-between ">
         <p>Cart item(s):</p>
         <button type="button" class="btn btn-danger" (click)="clearCart()">Clear Cart</button>
     </div>
     </div>
+    
 <div *ngFor="let item of items" class="card">
    
     <div class="card-body d-flex justify-content-between p-3">
@@ -22,11 +25,37 @@
     <h5 class="fw-bold mb-0">{{totalprice | currency:"EUR"}}</h5>
   </div>
   <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #e1f5fe;">
-    <h5 class="fw-bold mb-0">Discount 15% for purchase bigger then 45 EUR:</h5>
+    <h5 class="fw-bold mb-0">Service:</h5>
+    <h5 class="fw-bold mb-0">{{service | currency:"EUR"}}</h5>
+  </div>
+  <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #e1f5fe;">
+    <h5 class="fw-bold mb-0">Discount 15% for purchase bigger then 40 EUR:</h5>
     <h5 class="fw-bold mb-0">{{discount | currency:"EUR"}}</h5>
   </div>
   <div class="d-flex justify-content-between p-2 mb-2" style="background-color: #e1f5fe;">
     <h5 class="fw-bold mb-0">Total with Discount:</h5>
-    <h5 class="fw-bold mb-0">{{totalprice - discount | currency:"EUR"}}</h5>
+    <h5 class="fw-bold mb-0">{{totalprice - discount + service | currency:"EUR"}}</h5>
   </div>
+</div>
+  <div style="width:30% ;">
+    <h1 style="font-family:Inspiration, cursive; font-size: 5rem; text-align: center;"> Order Form</h1>
+    <p style="border-bottom:1px solid black ;">please fill up the info for the delivery</p>
+    <form class="text-center row row-cols-1 gap-3 justify-content-center" [formGroup]="orderForm" (ngSubmit)="onSubmit()" >
+      <label class="col form-label">
+          Name: 
+          <input class="form-control" type="text" formControlName="name">
+      </label>
+      <label class="col form-label">
+         Address: 
+          <input class="form-control" type="text" formControlName="address">
+      </label>
+
+      <input type="submit" class="btn btn-success col" value="Purchase" style="width:7rem ;">
+    </form>
+    
+  </div>
+
+
+
+</div>
 </div>
